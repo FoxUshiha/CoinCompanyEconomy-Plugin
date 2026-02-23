@@ -1,0 +1,45 @@
+name: CompanyEconomy
+version: 2.1
+main: com.foxsrv.companyeconomy.CompanyEconomy
+api-version: 1.20
+author: FoxOficial2
+description: Company management plugin with CoinCard integration
+depend: [CoinCard]
+softdepend: [PlaceholderAPI]
+
+commands:
+  company:
+    description: Main company command
+    aliases: [comp, companies]
+    usage: |
+      /company - Show company info
+      /company hire <player> <company> <role> - Hire a player
+      /company fire <player> <company> - Fire a player
+      /company leave <company> - Leave a company
+      /company deposit <company> <amount> - Deposit coins to company
+      /company withdraw <company> <amount> - Withdraw coins from company
+      /company info [company] - Show company information
+      /company reload - Reload plugin configuration
+
+permissions:
+  company.*:
+    description: All CompanyEconomy permissions
+    default: op
+    children:
+      company.use: true
+      company.reload: true
+      company.admin: true
+      
+  company.use:
+    description: Use basic company commands
+    default: true
+    
+  company.reload:
+    description: Reload the plugin configuration
+    default: op
+    
+  company.admin:
+    description: Admin permissions for company management
+    default: op
+    children:
+      company.reload: true
