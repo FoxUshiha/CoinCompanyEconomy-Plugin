@@ -86,7 +86,7 @@ public class CompanyEconomy extends JavaPlugin {
         this.salaryBukkitTask = salaryTask.runTaskTimer(this, 6000L, 36000L);
         getLogger().info("Salary task scheduled (30 minutes interval)");
 
-        // Register command - CORRIGIDO: usando PluginCommand em vez de Command
+        // Register command
         PluginCommand companyCommand = getCommand("company");
         if (companyCommand != null) {
             CompanyCommand executor = new CompanyCommand();
@@ -843,7 +843,6 @@ public class CompanyEconomy extends JavaPlugin {
             }
 
             sender.sendMessage(ChatColor.GOLD + "=== " + company.getDisplayName() + " ===");
-            sender.sendMessage(ChatColor.YELLOW + "Card: " + ChatColor.GREEN + company.getCardId());
 
             // Get balance asynchronously
             company.getBalance(new BalanceCallback() {
