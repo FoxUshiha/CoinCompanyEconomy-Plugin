@@ -444,8 +444,16 @@ public class CompanyEconomy extends JavaPlugin {
         }
 
         public void reload() {
+            // Salva os dados atuais em cache (opcional, para preservar alterações não salvas)
             saveAll();
+            
+            // Limpa completamente o cache
+            companies.clear();
+            
+            // Carrega tudo novamente do disco
             loadCompanies();
+            
+            plugin.getLogger().info("Companies reloaded from disk - cache cleared");
         }
 
         public Company getCompany(String name) {
